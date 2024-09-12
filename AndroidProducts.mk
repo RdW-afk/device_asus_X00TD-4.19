@@ -5,7 +5,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_X00TD.mk
+    $(LOCAL_DIR)/afterlife_X00TD.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_X00TD-ap2a-userdebug
+    afterlife_X00TD-userdebug
