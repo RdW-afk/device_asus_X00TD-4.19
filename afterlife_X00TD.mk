@@ -44,9 +44,6 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
 BUILD_FINGERPRINT := "asus/WW_X00TD/ASUS_X00T_6:10/QKQ1/17.2017.2012.438-20201203:user/release-keys"
 
-# Include our private certificate
--include vendor/afterlife-priv/keys/keys.mk
-
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.vendor.build.fingerprint=$(BUILD_FINGERPRINT) \
     ro.system.build.fingerprint=$(BUILD_FINGERPRINT) \
