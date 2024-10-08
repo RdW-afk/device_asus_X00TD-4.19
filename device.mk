@@ -7,6 +7,8 @@
 # Inherit from sdm660-common
 $(call inherit-product, device/asus/sdm660-common/sdm660.mk)
 
+-include vendor/after-priv/keys/keys.mk
+
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2160
 TARGET_SCREEN_WIDTH := 1080
@@ -29,6 +31,17 @@ PRODUCT_COPY_FILES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     init.device.rc
+
+# Signing
+ifneq (eng,$(TARGET_BUILD_VARIANT))
+ifneq (,$(wildcard vendor/after-priv/keys/releasekey.pk8))
+PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/after-priv/keys/releasekey
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.oem_unlock_supported=1
+endif
+ifneq (,$(wildcard vendor/after-priv/keys/otakey.x509.pem))
+PRODUCT_OTA_PUBLIC_KEYS := vendor/after-priv/keys/otakey.x509.pem
+endif
+endif
 
 # Wifi
 PRODUCT_PACKAGES += \

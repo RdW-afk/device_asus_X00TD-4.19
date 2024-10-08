@@ -14,7 +14,10 @@ $(call inherit-product, vendor/afterlife/config/common_full_phone.mk)
 # afterlife official flags
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_FACE_UNLOCK_SUPPORTED := true
-AFTERLIFE_MAINTAINER := Romeo_Delta_Wishkey
+AFTERLIFE_MAINTAINER := Romeo
+
+# AfterEcho
+TARGET_USE_ECHO := true
 
 # Offline Charging
 USE_PIXEL_CHARGING := true
@@ -44,12 +47,8 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
 BUILD_FINGERPRINT := "asus/WW_X00TD/ASUS_X00T_6:10/QKQ1/17.2017.2012.438-20201203:user/release-keys"
 
-# Include our private certificate
--include vendor/afterlife-priv/keys/keys.mk
-
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.vendor.build.fingerprint=$(BUILD_FINGERPRINT) \
     ro.system.build.fingerprint=$(BUILD_FINGERPRINT) \
     ro.product.build.fingerprint=$(BUILD_FINGERPRINT) \
-    ro.system_ext.build.fingerprint=$(BUILD_FINGERPRINT) \
-    ro.build.fingerprint=$(BUILD_FINGERPRINT)
+    ro.system_ext.build.fingerprint=$(BUILD_FINGERPRINT)
